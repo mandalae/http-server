@@ -1,0 +1,16 @@
+{
+  "name": "do-assessment",
+  "version": "1.0.0",
+  "description": "HTTP Service that accepts very specific JSON.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "nyc mocha ./test/**/*.test.js"
+  },
+  "author": "Chris Skaaning <c@rpediem.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^9.0.2",
+    "nyc": "^15.1.0"
+  }
+}
