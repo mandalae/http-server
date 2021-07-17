@@ -40,7 +40,7 @@ jobs:
           - run:
               name: Set up git
               command: git config --global user.email "c@rpediem.com" && git config --global user.name "Builder" && mkdir -p ~/.ssh && touch ~/.ssh/known_hosts && ssh-keygen -F github.com || ssh-keyscan github.com >> ~/.ssh/known_hosts
-          - run: npm run build
+          - run: npm run build:docker
           - run:
               name: Commit anything left
               command: git commit -m "Committing leftovers [ci skip]" . || true
