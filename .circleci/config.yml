@@ -50,6 +50,11 @@ jobs:
           - run:
               name: Push changes and tags
               command: git push && git push --tags
+              
+          - persist_to_workspace:
+              root: ~/repo
+              paths:
+                  - ./
   push:
       machine: true
       steps:
@@ -59,7 +64,7 @@ jobs:
        - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
        - run: ls -la
-       
+
        # build the application image
        - run: docker build -t mandalae/do-assessment:latest .
 
