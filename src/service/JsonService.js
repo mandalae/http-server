@@ -8,5 +8,11 @@ module.exports = {
             newObject.echoed = true;
         }
         return newObject;
+    },
+    validateJson: (json) => {
+        if (!json.username || !json.upload) {
+            return false;
+        }
+        return true;
     }
 };

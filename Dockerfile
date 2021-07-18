@@ -1,4 +1,5 @@
-FROM node:16-alpine
+ARG NODE_VERSION=16-alpine
+FROM node:$NODE_VERSION
 
 RUN mkdir -p /var/app
 

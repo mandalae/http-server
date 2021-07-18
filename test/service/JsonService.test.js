@@ -34,12 +34,22 @@ describe('JsonService', () => {
 
     it('should add an echoed flag if echoed flag exists but is a string', async () => {
         inputJson.echoed = 'true';
-        
+
         const expected = { ...inputJson };
         expected.echoed = true;
 
         const actual = JsonService.enrichJson(inputJson);
 
         expect(actual).toEqual(expected);
+    });
+
+    it('should validate the JSON correctly when appropriate JSON provided', async () => {
+        const actual = JsonService.validateJson(inputJson);
+        expect(actual).toBeTruthy();
+    });
+
+    it('should reject the JSON when it is invalid', async () => {
+        const actual = JsonService.validateJson({"test": "test"});
+        expect(actual).toBeFalsy();
     });
 });

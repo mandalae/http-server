@@ -50,7 +50,7 @@ jobs:
           - run:
               name: Push changes and tags
               command: git push && git push --tags
-              
+
           - persist_to_workspace:
               root: ~/repo
               paths:
@@ -63,13 +63,8 @@ jobs:
 
        - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-       - run: ls -la
-
-       # build the application image
-       - run: docker build -t mandalae/do-assessment:latest .
-
-       # deploy the image
-       - run: docker push mandalae/do-assessment:latest
+       # build and deploy a docker image using the Makefile
+       - run: make all IMAGE_VERSION=latest
 
 workflows:
   version: 2
